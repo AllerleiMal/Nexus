@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using BlogApp.Filters;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Models;
 
@@ -14,6 +15,12 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    [ViewLayout("_NoHeaderAndFooterLayout")]
+    public IActionResult Login()
     {
         return View();
     }

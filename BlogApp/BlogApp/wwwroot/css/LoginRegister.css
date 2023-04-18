@@ -1,0 +1,132 @@
+﻿/*TODO change margins to flex aligns*/
+
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Cabin, serif;
+}
+
+#image{
+    width: 50%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+img{
+    height: 100vh;
+    width: 100%;
+}
+
+.user-side{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#login-side{
+    background: rgba(255,120,71,0.22);
+}
+
+h1{
+    font-family: Cabin, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 57px;
+    color: #0B304C;
+    margin: 146px 0 80px;
+}
+
+#login-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    /*padding-top: 10%;*/
+    /*justify-content: space-evenly;*/
+}
+
+.login-input-field{
+    background: #aedaf7;
+    font-family: Cabin, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    color: black;
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
+    padding: 18px 0 18px 46px;
+    margin-bottom: 45px;
+    width: 90%;
+}
+
+#remember-label{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 32px;
+
+    color: #000000;
+
+    opacity: 0.5;
+}
+
+#remember-check:checked, input[type="checkbox"]{
+    accent-color: #aedaf7;
+    border: none;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
+    background-color: #aedaf7;
+    solid-color: #aedaf7;
+    width: 20px;
+    height: 20px;
+    margin: 0 20px 0 0;
+}
+
+#remember-me{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 65%;
+}
+
+.submit-btn{
+    font-family: Cabin, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 49px;
+    color: #FFFFFF;
+    background: #106694;
+    border: none;
+    border-radius: 0 12px;
+    padding: 15px 0 15px 0;
+    width: 70%;
+    margin-bottom: 32px;
+    margin-top: 95px;
+}
+
+#additional-actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.inputs{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
