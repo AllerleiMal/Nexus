@@ -1,11 +1,21 @@
-﻿<style>
-    #image{
-        position: absolute;
-        width: 1000px;
-        height: 1080px;
-    }
-</style>
-
-<div id="image">
+﻿<div id="image">
     <img src="img/login_background.jpg" alt=""/>
+</div>
+<div class="user-side" id="login-side">
+    <div id="login-form">
+        <h1>Log in to your account</h1>
+        <div class="inputs">
+            <input type="text" placeholder="Username..." class="login-input-field"/>
+            <input type="password" placeholder="Password..." class="login-input-field"/>
+            <div id="remember-me">
+                <input type="checkbox" id="remember-check"/>
+                <label for="remember-check" id="remember-label">remember me</label>
+            </div>
+        </div>
+        <input type="button" value="Sign in" class="submit-btn"/>
+        <div id="additional-actions">
+            <a>Register→</a>
+            <a>Forgot password?</a>
+        </div>
+    </div>
 </div>
