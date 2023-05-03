@@ -24,6 +24,12 @@ public class HomeController : Controller
     {
         return View();
     }
+    
+    [ViewLayout("_NoHeaderAndFooterLayout")]
+    public IActionResult Register()
+    {
+        return View();
+    }
 
     public IActionResult Privacy()
     {
