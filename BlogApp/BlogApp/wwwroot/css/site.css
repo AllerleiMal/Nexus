@@ -11,8 +11,34 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
   margin-bottom: 60px;
+  background-color: #EEEEEE;
+}
+footer{
+  background-color: #ffffff;
+}
+
+#social-networks{
+  display: flex;
+  width: 10%;
+  min-width: 120px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-data{
+  display: flex;
+  flex-direction: row;
+  padding-left: 7.5%;
+  padding-right: 7.5%;
+  justify-content: space-between;
+}
+
+#menu{
+  align-items: center;
 }
