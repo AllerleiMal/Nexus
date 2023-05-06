@@ -6,6 +6,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/createPost.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/css/feed.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/BlogApp.styles.css" asp-append-version="true"/>
 </head>
@@ -39,8 +40,11 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Requests</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CreatePost">Create Post</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="img/search.svg" alt="search" width="20" height="20"/>
+                            <img src="~/img/search.svg" alt="search" width="20" height="20"/>
                         </a>
                     </li>
                 </ul>
@@ -49,9 +53,7 @@
     </nav>
 </header>
 <div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+    @RenderBody()
 </div>
 
 <footer class="border-top footer text-muted">
@@ -59,13 +61,13 @@
         Copyright &copy; 2023
         <div id="social-networks">
             <a href="https://web.telegram.org/">
-                <img src="img/telegram_icon.svg" alt=""/>
+                <img src="~/img/telegram_icon.svg" alt=""/>
             </a>
             <a href="https://www.facebook.com/">
-                <img src="img/facebook_icon.svg" alt=""/>
+                <img src="~/img/facebook_icon.svg" alt=""/>
             </a>
             <a href="https://twitter.com/">
-                <img src="img/twitter_icon.svg" alt=""/>
+                <img src="~/img/twitter_icon.svg" alt=""/>
             </a>
         </div>
     </div>
