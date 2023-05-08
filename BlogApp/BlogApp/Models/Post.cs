@@ -1,6 +1,24 @@
-﻿namespace BlogApp.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace BlogApp.Models;
 
 public class Post
 {
-    
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public string Content { get; set; } = null!;
+
+    public byte[]? PreviewImage { get; set; }
+
+    public int? BlogId { get; set; }
+
+    public bool ModerationPassed { get; set; }
+
+    public virtual Blog? Blog { get; set; }
+
+    public virtual ICollection<PostTag> PostTags { get; set; } = new List<PostTag>();
+    public virtual ICollection<Tag> Tags { get; set; } = new List<Tag>();
 }

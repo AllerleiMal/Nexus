@@ -52,12 +52,21 @@ public class BlogContext : DbContext
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Blog> Blogs { get; set; }
-        public DbSet<Admin> Admins { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
-        public DbSet<NotificationType> NotificationTypes { get; set; }
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<PostTag> PostTags { get; set; }
-        public DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
+
+        public virtual DbSet<Blog> Blogs { get; set; }
+
+        public virtual DbSet<Notification> Notifications { get; set; }
+
+        public virtual DbSet<NotificationType> NotificationTypes { get; set; }
+
+        public virtual DbSet<Post> Posts { get; set; }
+
+        public virtual DbSet<PostTag> PostTags { get; set; }
+
+        public virtual DbSet<Subscription> Subscriptions { get; set; }
+
+        public virtual DbSet<Tag> Tags { get; set; }
+
+        public virtual DbSet<User> Users { get; set; }
 }
