@@ -49,6 +49,7 @@
     height: 450px;
     padding-left: 2%;
     padding-right: 2%;
+    width: 100%;
 }
 
 .feed-item-description{

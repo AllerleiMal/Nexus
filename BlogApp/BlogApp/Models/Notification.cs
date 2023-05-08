@@ -14,5 +14,6 @@ public partial class Notification
     public int TypeId { get; set; }
 
     public virtual NotificationType Type { get; set; } = null!;
+    
     public virtual User User { get; set; } = null!;
 }

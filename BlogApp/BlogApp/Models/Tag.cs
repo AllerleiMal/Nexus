@@ -14,4 +14,5 @@ public class Tag
     public string Title { get; set; } = null!;
 
     public virtual ICollection<PostTag> PostTags { get; set; } = new List<PostTag>();
+    public virtual ICollection<Post> Posts { get; set; } = new List<Post>();
 }

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Post>
+
+@{
     ViewData["Title"] = "Feed";
 }
 <div class="container">
@@ -21,44 +23,10 @@
         </div>
 
         <div id="feed-content">
-            <div class="feed-item">
-                <div class="feed-item-description">
-                    <h2 class="post-title">Title</h2>
-                    <div class="sources">
-                        <div class="author-block">
-                            <span class="source-name">Author: </span> <a class="source-link">Username</a>
-                        </div>
-                        <div class="blog-name-block">
-                            <span class="source-name">Blog: </span> <a class="source-link">Blog title</a>
-                        </div>
-                    </div>
-                    <div class="tags">
-                        <span class="tag">#initial</span>
-                        <span class="tag">#first</span>
-                        <span class="tag">#second</span>
-                        <span class="tag">#initial</span>
-                        <span class="tag">#first</span>
-                        <span class="tag">#second</span>
-                    </div>
-                    <div class="post-description">
-                        <span class="source-name">Description:</span>
-                        <p>
-
-                            This beautifully textured artwork is created with the modern home
-                            in mind. Greys and yellows are a current trend and this bespoke
-                            piece sits beautifully within this colour pallet.
-
-                            The deep canvas just needs a wall fitting to rest on so it can be suspended...
-                        </p>
-                    </div>
-                    <a class="post-more-link">
-                        <h3>More→</h3>
-                    </a>
-                </div>
-                <div class="feed-item-image">
-                    <img src="~/img/post-image.png" alt=""/>
-                </div>
-            </div>
+            @foreach (var post in Model)
+            {
+                <partial name="_FeedPostPartial" model="post"/>
+            }
             <hr class="delimiter"/>
         </div>
     </main>
