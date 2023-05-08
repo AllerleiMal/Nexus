@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BlogApp.Models;
 
@@ -16,6 +17,9 @@ public class Post
     public int? BlogId { get; set; }
 
     public bool ModerationPassed { get; set; }
+    
+    [StringLength(300)]
+    public string? Description { get; set; }
 
     public virtual Blog? Blog { get; set; }
 

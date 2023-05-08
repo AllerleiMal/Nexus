@@ -1,0 +1,47 @@
+﻿@using System.Drawing
+@model Post
+
+<div class="feed-item">
+    <div class="feed-item-description">
+        <h2 class="post-title">@Model.Title</h2>
+        <div class="sources">
+            <div class="author-block">
+                <span class="source-name">Author: </span> <a class="source-link">@Model.Blog.User.Username</a>
+            </div>
+            <div class="blog-name-block">
+                <span class="source-name">Blog: </span> <a class="source-link">@Model.Blog.Title</a>
+            </div>
+        </div>
+        <div class="tags">
+            @foreach (var tag in Model.Tags)
+            {
+                <span class="tag">#@tag.Title</span>
+            }
+        </div>
+        <div class="post-description">
+            <span class="source-name">Description:</span>
+            <p>
+                @Model.Description
+            </p>
+        </div>
+        <a class="post-more-link">
+            <h3>More→</h3>
+        </a>
+    </div>
+    <div class="feed-item-image">
+
+        @if (Model.PreviewImage != null)
+        {
+            Image previewImage;
+            using (MemoryStream ms = new MemoryStream(Model.PreviewImage))
+            {
+                previewImage = Image.FromStream(ms);
+            }
+            <img src="@previewImage" alt=""/>
+        }
+        else
+        {
+            <img src="~/img/post-image.png" alt=""/>
+        }
+    </div>
+</div>

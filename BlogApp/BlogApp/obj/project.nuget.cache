@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "klObyc79fchIYzm80cxLXPxUQWZdLkb35sLBQLcnyGmrDPEmso0zHL2Q8sHYLG3JHdGQ3F3P9T5bj3Q6RCLzHg==",
+  "dgSpecHash": "JjlGInui8fUOZTOfVImwZ9rvOuN/jYRudkC5YNS7o+IYcDXkzZHpDd5sF6GW2oNzo9QkrO7H/GwrQoJlH/AyYQ==",
   "success": true,
   "projectFilePath": "D:\\blog\\Blog\\BlogApp\\BlogApp\\BlogApp.csproj",
   "expectedPackageFiles": [
@@ -39,12 +39,12 @@
     "C:\\Users\\emely\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
-    "C:\\Users\\emely\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\emely\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0-preview.2.23128.3\\microsoft.win32.systemevents.8.0.0-preview.2.23128.3.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\emely\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\emely\\.nuget\\packages\\system.drawing.common\\8.0.0-preview.2.23128.3\\system.drawing.common.8.0.0-preview.2.23128.3.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
     "C:\\Users\\emely\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",

@@ -1,22 +1,30 @@
 ﻿using System.Diagnostics;
+using BlogApp.Context;
 using BlogApp.Filters;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private BlogContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, BlogContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var data = await _context.Posts.Include(p => p.Blog)
+            .Include(p => p.Blog.User)
+            .Include(post => post.Tags)
+            .ToListAsync();
+        return View(data);
     }
 
     [ViewLayout("_NoHeaderAndFooterLayout")]
@@ -39,6 +47,11 @@ public class HomeController : Controller
     public IActionResult CreatePost()
     {
         return View();
+    }
+
+    public async Task<IActionResult> UserList()
+    {
+        return View(await _context.Users.ToListAsync());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
