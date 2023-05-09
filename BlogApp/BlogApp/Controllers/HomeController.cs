@@ -3,6 +3,7 @@ using BlogApp.Context;
 using BlogApp.Filters;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Controllers;
@@ -27,23 +28,12 @@ public class HomeController : Controller
         return View(data);
     }
 
-    [ViewLayout("_NoHeaderAndFooterLayout")]
-    public IActionResult Login()
-    {
-        return View();
-    }
-    
-    [ViewLayout("_NoHeaderAndFooterLayout")]
-    public IActionResult Register()
-    {
-        return View();
-    }
-
     public IActionResult Privacy()
     {
         return View();
     }
 
+    [Authorize]
     public IActionResult CreatePost()
     {
         return View();

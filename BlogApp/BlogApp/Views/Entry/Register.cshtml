@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model RegisterViewModel
+
+<div id="image">
+    <img src="~/img/register_background.jpg" alt=""/>
+</div>
+<div class="user-side" id="register-side">
+    <form asp-action="Register" method="post" id="register-form">
+        <h1>Sign up</h1>
+        <div id="email-block" class="input-block">
+            <img src="~/img/at.svg" alt="" class="input-icon"/>
+            <input placeholder="Email address..." class="register-input-field" asp-for="Email"/>
+        </div>
+
+        <span asp-validation-for="Email" class="error-validation"></span>
+
+        <div id="username-block" class="input-block">
+            <img src="~/img/user.svg" alt="" class="input-icon"/>
+            <input placeholder="Username..." class="register-input-field" asp-for="Username"/>
+        </div>
+
+        <span asp-validation-for="Username" class="error-validation"></span>
+
+        <div class="input-block">
+            <img src="~/img/pass_key.svg" alt="" class="input-icon"/>
+            <input placeholder="Password..." class="register-input-field" asp-for="Password"/>
+        </div>
+
+        <span asp-validation-for="Password" class="error-validation"></span>
+
+        <div class="input-block">
+            <img src="~/img/pass_key.svg" alt="" class="input-icon"/>
+            <input placeholder="Repeat password..." class="register-input-field" asp-for="PasswordConfirm"/>
+        </div>
+
+        <span asp-validation-for="PasswordConfirm" class="error-validation"></span>
+
+        <div id="terms-agreement">
+            <input type="checkbox" id="terms-check" asp-for="AgreedWithTerms"/>
+            <label for="terms-check" id="terms-label">I agree to the <a href="https://google.com">Terms of User</a></label>
+        </div>
+        
+        <span asp-validation-for="AgreedWithTerms" class="error-validation"></span>
+        
+        <div id="actions">
+            <input type="submit" value="Sign up" class="submit-btn"/>
+            <a asp-controller="Entry" asp-action="Login">Sign in→</a>
+        </div>
+    </form>
+</div>
