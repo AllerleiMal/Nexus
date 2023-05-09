@@ -1,0 +1,44 @@
+﻿@* @model IEnumerable<Post> *@
+@* *@
+@* <table class="table"> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(post => post) *@
+@*         </th> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(user => user.FirstName) *@
+@*         </th> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(user => user.Email) *@
+@*         </th> *@
+@*         <th> *@
+@*             @Html.DisplayNameFor(user => user.Password) *@
+@*         </th> *@
+@*         <th></th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     @foreach (var userItem in Model) { *@
+@*         <tr> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => userItem.Id) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => userItem.FirstName) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => userItem.Email) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => userItem.Password) *@
+@*             </td> *@
+@*             $1$ <td> #1# *@
+@*             $1$     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | #1# *@
+@*             $1$     <a asp-action="Details" asp-route-id="@item.Id">Details</a> | #1# *@
+@*             $1$     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> #1# *@
+@*             $1$ </td> #1# *@
+@*         </tr> *@
+@*     } *@
+@*     </tbody> *@
+@* </table> *@
