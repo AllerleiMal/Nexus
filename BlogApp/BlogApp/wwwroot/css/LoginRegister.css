@@ -1,6 +1,4 @@
-﻿/*TODO change margins to flex aligns*/
-
-body, html {
+﻿body, html {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -231,4 +229,21 @@ h1 {
     width: 20px;
     height: 20px;
     margin: 0 20px 0 0;
+}
+
+.error-validation{
+    color: red;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    #image{
+        width: 0;
+    }
+    #register-side{
+        width: 100%;
+    }
+    #login-side{
+        width: 100%;
+    }
 }

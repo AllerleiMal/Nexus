@@ -41,7 +41,6 @@ public class BlogContext : DbContext
             entity.ToTable("Admin");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(50)
@@ -72,7 +71,6 @@ public class BlogContext : DbContext
             entity.ToTable("Blog");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Description)
                 .IsUnicode(false)
@@ -96,7 +94,6 @@ public class BlogContext : DbContext
             entity.ToTable("Notification");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Description)
                 .IsUnicode(false)
@@ -122,7 +119,6 @@ public class BlogContext : DbContext
             entity.ToTable("Notification_Type");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Title)
                 .HasMaxLength(50)
@@ -137,7 +133,6 @@ public class BlogContext : DbContext
             entity.ToTable("Post");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.BlogId).HasColumnName("blog_id");
             entity.Property(e => e.Content)
@@ -161,7 +156,6 @@ public class BlogContext : DbContext
             entity.ToTable("Post_Tag");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.PostId).HasColumnName("post_id");
             entity.Property(e => e.TagId).HasColumnName("tag_id");
@@ -184,7 +178,6 @@ public class BlogContext : DbContext
             entity.ToTable("Subscription");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
 
             entity.Property(e => e.AuthorId).HasColumnName("author_id");
@@ -209,7 +202,6 @@ public class BlogContext : DbContext
             entity.ToTable("Tag");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.Title)
                 .HasMaxLength(30)
@@ -221,7 +213,6 @@ public class BlogContext : DbContext
             entity.HasKey(e => e.Id).HasName("User_PK");
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.About)
                 .IsUnicode(false)
