@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using BlogApp.Context;
-using BlogApp.Filters;
 using Microsoft.AspNetCore.Mvc;
 using BlogApp.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -38,12 +37,6 @@ public class HomeController : Controller
     public IActionResult CreatePost()
     {
         return View();
-    }
-
-    [Authorize(Roles = "admin")]
-    public async Task<IActionResult> UserList()
-    {
-        return View(await _context.Users.ToListAsync());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
