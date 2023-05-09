@@ -25,7 +25,7 @@
         <div id="feed-content">
             @foreach (var post in Model)
             {
-                <partial name="_FeedPostPartial" model="post"/>
+                <partial name="_PostPreviewPartial" model="post"/>
             }
             <hr class="delimiter"/>
         </div>
