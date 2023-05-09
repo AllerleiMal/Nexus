@@ -38,7 +38,7 @@ public class User
 
     [DisplayName("About")]
     public string? About { get; set; }
-
+    
     [DisplayName("Registration date")]
     [DataType(DataType.Date)] 
     public DateTime RegistrationDate { get; set; }
@@ -48,7 +48,7 @@ public class User
     [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$",
         ErrorMessage =
             "Password must contain minimum eight characters, at least one letter, one number and one special character")]
-    public string? Password { get; set; }
+    public string Password { get; set; } = null!;
 
     public virtual Admin? Admin { get; set; }
 

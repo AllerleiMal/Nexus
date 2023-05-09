@@ -1,25 +1,27 @@
-﻿@model User
+﻿@model LoginViewModel
 
 <div id="image">
     <img src="~/img/login_background.jpg" alt=""/>
 </div>
 <div class="user-side" id="login-side">
-    <div id="login-form">
+    <form asp-action="Login" method="post" id="login-form">
         <h1>Log in to your account</h1>
-        <div class="inputs">
-            <input type="text" placeholder="Username..." class="login-input-field"/>
-            <input type="password" placeholder="Password..." class="login-input-field"/>
-            <div id="remember-me">
-                <input type="checkbox" id="remember-check"/>
-                <label for="remember-check" id="remember-label">remember me</label>
-            </div>
-        </div>
-        <div id="submit-section">
-            <input type="button" value="Sign in" class="submit-btn"/>
+                <div class="inputs">
+                    <input placeholder="Username..." class="login-input-field" asp-for="Username"/>
+                    <span asp-validation-for="Username" class="error-validation"></span>
+                    <input placeholder="Password..." class="login-input-field" asp-for="Password"/>
+                    <span asp-validation-for="Password" class="error-validation"></span>
+                    <div id="remember-me">
+                        <input type="checkbox" id="remember-check"/>
+                        <label for="remember-check" id="remember-label">remember me</label>
+                    </div>
+                </div>
+                <div id="submit-section">
+                    <input type="submit" value="Sign in" class="submit-btn"/>
                     <div id="additional-actions">
                         <a asp-controller="Entry" asp-action="Register">Register→</a>
-                        <a>Forgot password?</a>
+                        <a onclick="alert('Well done. Register again');">Forgot password?</a>
                     </div>
-        </div>
-    </div>
+                </div>
+    </form>
 </div>
