@@ -19,6 +19,7 @@ public class HomeController : Controller
         _context = context;
     }
 
+    [Authorize]
     public async Task<IActionResult> Index()
     {
         var data = await _context.Posts.Include(p => p.Blog)
@@ -39,6 +40,7 @@ public class HomeController : Controller
         return View();
     }
 
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> UserList()
     {
         return View(await _context.Users.ToListAsync());

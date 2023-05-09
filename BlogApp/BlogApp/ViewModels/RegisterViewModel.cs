@@ -30,6 +30,7 @@ public class RegisterViewModel
     [Display(Name = "Confirm password")]
     public string PasswordConfirm { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Please accept the terms and condition.")]
+    [Display(Name = "AgreedWithTerms")]
     public bool AgreedWithTerms { get; set; }
 }
