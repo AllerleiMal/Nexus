@@ -12,8 +12,7 @@ public class AllowedExtensionsAttribute : ValidationAttribute
     
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
-        var file = value as IFormFile;
-        if (file != null)
+        if (value is IFormFile file)
         {
             var extension = Path.GetExtension(file.FileName);
             if (!_extensions.Contains(extension.ToLower()))
@@ -25,8 +24,8 @@ public class AllowedExtensionsAttribute : ValidationAttribute
         return ValidationResult.Success;
     }
 
-    public string GetErrorMessage()
+    private string GetErrorMessage()
     {
-        return $"This photo extension is not allowed!";
+        return "This extension is not allowed!";
     }
 }

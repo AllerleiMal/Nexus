@@ -61,7 +61,8 @@ public class EntryController : Controller
             var claims = new List<Claim>
             {
                 new (ClaimsIdentity.DefaultNameClaimType, targetUser.Username),
-                new (ClaimsIdentity.DefaultRoleClaimType, targetUser.Admin is null ? Role.User : Role.Admin)
+                new (ClaimsIdentity.DefaultRoleClaimType, targetUser.Admin is null ? Role.User : Role.Admin),
+                new ("email", targetUser.Email)
             };
             
             var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
@@ -124,7 +125,8 @@ public class EntryController : Controller
             var claims = new List<Claim>
             {
                 new (ClaimsIdentity.DefaultNameClaimType, userData.Username),
-                new (ClaimsIdentity.DefaultRoleClaimType, Role.User)
+                new (ClaimsIdentity.DefaultRoleClaimType, Role.User),
+                new ("email", userData.Email)
             };
             
             var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
