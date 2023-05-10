@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BlogApp.Models;
 
@@ -59,4 +60,20 @@ public class User
     public virtual ICollection<Subscription> Subscribers { get; set; } = new List<Subscription>();
 
     public virtual ICollection<Subscription> FollowedAuthors { get; set; } = new List<Subscription>();
+
+    public static List<SelectListItem> GetUserBlogsItems(User user)
+    {
+        List<SelectListItem> userBlogList = new List<SelectListItem>();
+        
+        foreach (var blog in user.Blogs)
+        {
+            userBlogList.Add(new SelectListItem
+            {
+                Text = blog.Title,
+                Value = $"{blog.Id}"
+            });
+        }
+
+        return userBlogList;
+    }
 }

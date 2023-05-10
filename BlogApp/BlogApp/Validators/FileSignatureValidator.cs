@@ -1,6 +1,6 @@
-﻿namespace BlogApp.DataAttributes;
+﻿namespace BlogApp.Validators;
 
-public class FileSignatureValidator
+public static class FileSignatureValidator
 {
     public static bool IsFileValid(IFormFile file)
     {
