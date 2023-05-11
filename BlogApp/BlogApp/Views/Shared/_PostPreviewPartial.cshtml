@@ -24,7 +24,7 @@
                 @Model.Description
             </p>
         </div>
-        <a class="post-more-link">
+        <a class="post-more-link" asp-controller="Blog" asp-action="Post" asp-route-id="@Model.Id">
             <h3>More→</h3>
         </a>
     </div>

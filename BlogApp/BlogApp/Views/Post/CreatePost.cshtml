@@ -1,9 +1,7 @@
-﻿@using Microsoft.EntityFrameworkCore
-@model CreatePostViewModel
+﻿@model CreatePostViewModel
 
 @{
     ViewData["Title"] = "Create post";
-    ViewData["UserBlogs"] = Json.Serialize(@Model.UserBlogs);
 }
 <div class="container" id="create-post-container">
     <form asp-action="CreatePost" method="post" id="create-post-form" enctype="multipart/form-data">
