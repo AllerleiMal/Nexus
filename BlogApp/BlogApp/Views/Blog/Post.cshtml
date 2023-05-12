@@ -1,5 +1,9 @@
 ﻿@model Post
 
+@{
+    ViewData["Title"] = Model.Title;
+}
+
 <div class="container" id="post-view-container">
     @if (Model is null)
     {
@@ -15,6 +19,14 @@
                     <span class="tag">#@tag.Title</span>
                 }
             </div>
+            <div class="sources">
+                        <div class="author-block">
+                            <span class="source-name">Author: </span> <a class="source-link" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Blog.User.Id">@Model.Blog.User.Username</a>
+                        </div>
+                        <div class="blog-name-block">
+                            <span class="source-name">Blog: </span> <a class="source-link" asp-controller="Blog" asp-action="Details" asp-route-id="@Model.Blog.Id">@Model.Blog.Title</a>
+                        </div>
+                    </div>
             <div id="post-preview-image">
                 @if (Model.PreviewImage != null)
                 {
@@ -26,7 +38,7 @@
                 }
             </div>
             <div id="post-content-zone">
-                <span id="post-content-t">@Model.Content</span>
+                <span id="post-content">@Model.Content</span>
             </div>
         </div>
     }

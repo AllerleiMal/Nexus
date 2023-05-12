@@ -6,7 +6,6 @@ using BlogApp.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApp.Controllers;
@@ -69,15 +68,7 @@ public class EntryController : Controller
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
             await HttpContext.SignInAsync(claimsPrincipal);
             
-            string returnUrl = HttpContext.Request.Query["returnUrl"];
-            if (!String.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);   
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");   
-            }
+            return RedirectToAction("Index", "Home");
         }
         
         return View(userData);
@@ -117,7 +108,8 @@ public class EntryController : Controller
             {
                 Username = userData.Username,
                 Email = userData.Email,
-                Password = userData.Password
+                Password = userData.Password,
+                RegistrationDate = DateTime.Today
             });
             
             await _context.SaveChangesAsync();

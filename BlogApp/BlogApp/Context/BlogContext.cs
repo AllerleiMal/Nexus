@@ -184,6 +184,8 @@ public class BlogContext : DbContext
             
             entity.Property(e => e.UserId).HasColumnName("user_id");
 
+            entity.Property(e => e.Date).HasColumnName("date");
+
             entity.HasOne(d => d.Author).WithMany(p => p.Subscribers)
                 .HasForeignKey(d => d.AuthorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -238,6 +240,11 @@ public class BlogContext : DbContext
             .HasMany(post => post.Tags)
             .WithMany(tag => tag.Posts)
             .UsingEntity<PostTag>();
+        
+        // modelBuilder.Entity<User>()
+        //     .HasMany(user => user.FollowedAuthors)
+        //     .WithMany(user => user.Subscribers)
+        //     .UsingEntity<Subscription>();
 
         base.OnModelCreating(modelBuilder);
     }

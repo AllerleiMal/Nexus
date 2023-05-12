@@ -14,6 +14,9 @@ public class Subscription
     public int UserId { get; set; }
     
     public int AuthorId { get; set; }
+    
+    [DataType(DataType.Date)] 
+    public DateTime? Date { get; set; }
 
     // [ForeignKey("author_id")]
     public virtual User Author { get; set; } = null!;

@@ -1,0 +1,171 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+@if (Model is null)
+{
+    <div class="container">
+        <div class="alert-danger">No user with such id</div>
+    </div>
+}
+else
+{
+    bool authorizedUserProfile = User.Claims.First(claim => claim.Type == "email").Value.Equals(Model.Email);
+    
+    <div id="profile-header">
+        @if (Model.ProfileHeader is null)
+        {
+            <img src="~/img/header.png" alt=""/>
+        }
+        else
+        {
+            <img src="data:image;base64,@Convert.ToBase64String(Model.ProfileHeader)" alt=""/>
+        }
+        @if (authorizedUserProfile)
+        {
+            <a asp-controller="User" asp-action="Settings" asp-route-id="@Model.Id">
+                <div id="settings-circle">
+                    <img src="~/img/settings.svg" alt="">
+                </div>
+            </a>
+        }
+    </div>
+    <div class="profile">
+        <div id="user-image-block">
+            <div id="user-image">
+                @if (Model.ProfileImage is null)
+                {
+                    <img src="~/img/user_image.png" alt=""/>
+                }
+                else
+                {
+                    <img src="data:image;base64,@Convert.ToBase64String(Model.ProfileImage)" alt=""/>
+                }
+            </div>
+            <h1 class="display-5 username">@Model.Username</h1>
+            @if (authorizedUserProfile)
+            {
+                <a id="create-blog" class="create" asp-controller="Blog" asp-action="Create">
+                    Create blog
+                </a>
+                <a id="create-post" class="create" asp-controller="Post" asp-action="CreatePost">
+                    Create post
+                </a>   
+            }
+            else
+            {
+                <a id="create-blog" class="create" asp-action="Subscribe" asp-route-id="@Model.Id">
+                    Subscribe
+                </a>
+            }
+        </div>
+        <div id="main-info">
+            <div id="info-block">
+                <ul id="personal-info-navbar" class="custom-navbar">
+                    <li class="chosen" onclick="AboutAuthorOnClick()" id="about-author-li">About author</li>
+                    <li onclick="PersonalInformationOnClick()" id="personal-info-li">Personal information</li>
+                </ul>
+                <div id="about-author-block">
+                    @{
+                        if (Model.About is null)
+                        {
+                            <span id="about-author-placeholder" class="custom-placeholder">It's time to tell your readers about yourself...</span>
+                        }
+                        else
+                        {
+                            <span id="about-author">@Model.About</span>
+                        }
+                    }
+                </div>
+                <div id="personal-info-block">
+                    <table class="table">
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.FirstName</td>
+                        </tr>
+                        <tr>
+                            <td>Surname</td>
+                            <td>@Model.SecondName</td>
+                        </tr>
+                        <tr>
+                            <td>Sign up date</td>
+                            <td>@Model.RegistrationDate.Value.ToShortDateString()</td>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            @if (Model.Admin is null)
+                            {
+                                <td>User</td>
+                            }
+                            else
+                            {
+                                <td>Administrator</td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="activity-block">
+                <ul class="custom-navbar">
+                    <li class="chosen" id="recent-activity-li" onclick="RecentActivityOnClick()">Recent activity</li>
+                    <li id="blogs-li" onclick="BlogsOnClick()">Blogs</li>
+                </ul>
+                <div id="recent-activity-block">
+                    @{
+                        List<Post> allPosts = new List<Post>();
+                        foreach (var blog in Model.Blogs)
+                        {
+                            allPosts.AddRange(blog.Posts);
+                        }
+                        var lastPost = allPosts.MaxBy(post => post.Id);
+                    }
+
+                    @if (lastPost is null)
+                    {
+                        <span class="custom-placeholder">No recent activity</span>
+                    }
+                    else
+                    {
+                        <partial name="_PostPreviewPartial" model="lastPost"/>
+                    }
+                </div>
+                <div id="blogs-block">
+                    @if (!Model.Blogs.Any())
+                    {
+                        <span class="custom-placeholder">No blogs created yet</span>
+                    }
+                    else
+                    {
+                        @foreach (var blog in Model.Blogs)
+                        {
+                            <partial name="_ProfileBlogPreviewPartial" model="blog"/>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div id="subscriptions-block">
+            <ul class="custom-navbar">
+                <li class="chosen" id="subscriptions-li">Subscriptions</li>
+            </ul>
+            <div id="subscriptions">
+                @if (!Model.FollowedAuthors.Any())
+                {
+                    <span class="custom-placeholder">No followed authors</span>
+                }
+                else
+                {
+                    foreach (var followedAuthor in Model.FollowedAuthors)
+                    {
+                        <partial name="_FollowedAuthorInProfilePartial" model="followedAuthor.Author"/>
+                        <hr class="delimiter"/>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}
