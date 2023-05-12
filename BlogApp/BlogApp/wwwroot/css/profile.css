@@ -146,6 +146,7 @@
 
 #blogs-block {
     display: none;
+    flex-direction: column;
 }
 
 .username {
@@ -225,6 +226,8 @@
     display: flex;
     width: 100%;
     flex-direction: row;
+    height: 200px;
+    padding: 1%;
 }
 
 .blog-title-block {
@@ -247,10 +250,13 @@
 .blog-preview-image {
     display: flex;
     width: 50%;
+    justify-content: center;
+    align-items: center;
 }
 
 .blog-preview-image img {
     max-width: 100%;
     max-height: 100%;
+    display: block;
 }
 

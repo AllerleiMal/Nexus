@@ -1,5 +1,31 @@
-﻿@{
+﻿@model CreateBlogViewModel
+@{
     ViewData["Title"] = "Create blog";
+    ViewData["Page"] = "CreateBlog";
 }
 
-<h1>Create blog</h1>
+<div class="container" id="create-blog-container">
+    <form asp-controller="Blog" asp-action="Create" method="post" id="create-blog-form" enctype="multipart/form-data">
+        <h1 id="form-title" class="display-3">Create blog</h1>
+
+        <div id="title-block" class="blog-creation-block">
+            <h1 class="display-6">Title</h1>
+            <textarea class="textarea" id="title" placeholder="Enter the blog title" asp-for="Title"></textarea>
+            <span asp-validation-for="Title" class="error-validation"></span>
+        </div>
+
+        <div class="blog-creation-block">
+            <h1 class="display-6">Preview image</h1>
+            <input asp-for="PreviewImage" id="imageInput" placeholder="Choose file"/>
+            <span asp-validation-for="PreviewImage" class="error-validation"></span>
+        </div>
+
+        <div id="description-block" class="blog-creation-block">
+            <h1 class="display-6">Description</h1>
+            <textarea class="textarea" placeholder="Put description here" id="description" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="error-validation"></span>
+        </div>
+
+        <input type="submit" id="create-blog-btn" value="Create"/>
+    </form>
+</div>
