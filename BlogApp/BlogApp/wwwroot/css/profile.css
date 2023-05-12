@@ -1,0 +1,256 @@
+﻿.navbar {
+    margin-bottom: 0 !important;
+}
+
+.alert-danger {
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#profile-header {
+    width: 100%;
+    height: 300px;
+}
+
+#profile-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*object-position: 0 0;*/
+}
+
+#settings-circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 5px;
+    right: 20px;
+    top: 280px;
+    width: 50px;
+    height: 50px;
+}
+
+#settings-circle:hover {
+    background-color: #F5FAFF;
+    cursor: pointer;
+}
+
+#settings-circle img {
+    width: 30px;
+    height: 30px;
+}
+
+#user-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 256px;
+    /*height: 256px;*/
+}
+
+#user-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#user-image-block {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFECEC;
+    border-radius: 2px;
+    border: none;
+    text-decoration: none;
+    padding: 5px;
+    min-width: 200px;
+    min-height: 40px;
+    color: black;
+    margin: 10px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    gap: 2%;
+}
+
+#main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+#info-block {
+    background-color: white;
+    min-height: 100px;
+    width: 100%;
+}
+
+#activity-block {
+    background-color: white;
+    min-height: 100px;
+    width: 100%;
+}
+
+#subscriptions-block {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: fit-content;
+    min-height: 300px;
+    background-color: white;
+}
+
+.custom-navbar {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    font-size: 20px;
+}
+
+.custom-navbar li {
+    width: 100%;
+    text-align: center;
+}
+
+.chosen {
+    background-color: #F5FAFF;
+}
+
+#personal-info-block {
+    display: none;
+}
+
+#blogs-block {
+    display: none;
+}
+
+.username {
+    display: flex;
+    width: 100%;
+    text-indent: initial;
+    overflow-wrap: anywhere;
+    justify-content: center;
+}
+
+#about-author-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2%;
+}
+
+.custom-placeholder {
+    color: rgb(0, 0, 0, 0.5);
+    padding: 3%;
+}
+
+#follow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 40px;
+}
+
+#follow-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 100%;
+}
+
+#follow-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#followed-image {
+    width: 30%;
+    padding: 3%;
+}
+
+#followed-name {
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#followed-name a {
+    color: #9AC0FB;
+    text-decoration: auto;
+    cursor: pointer;
+}
+
+#subscriptions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recent-activity-block {
+    display: flex;
+}
+
+.blog-preview {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.blog-title-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 50%;
+    padding: 1%;
+}
+
+.blog-title a{
+    color: #9AC0FB;
+    text-decoration: auto;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.blog-preview-image {
+    display: flex;
+    width: 50%;
+}
+
+.blog-preview-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+

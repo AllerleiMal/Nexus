@@ -42,7 +42,7 @@ public class User
     
     [DisplayName("Registration date")]
     [DataType(DataType.Date)] 
-    public DateTime RegistrationDate { get; set; }
+    public DateTime? RegistrationDate { get; set; }
 
     [DisplayName("Password")]
     [DataType(DataType.Password)]
@@ -60,6 +60,10 @@ public class User
     public virtual ICollection<Subscription> Subscribers { get; set; } = new List<Subscription>();
 
     public virtual ICollection<Subscription> FollowedAuthors { get; set; } = new List<Subscription>();
+
+    // public virtual ICollection<User> FollowedAuthors { get; set; } = new List<User>();
+    //
+    // public virtual ICollection<User> Subscribers { get; set; } = new List<User>();
 
     public static List<SelectListItem> GetUserBlogsItems(User user)
     {

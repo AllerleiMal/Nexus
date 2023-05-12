@@ -111,8 +111,8 @@ public class PostController : Controller
 
     private User? GetCurrentUser()
     {
-        return _context.Users.Include(user => user.Blogs).FirstOrDefault(user =>
-            user.Username.Equals(User.Identity.Name));
+        return _context.Users.Where(user =>
+            user.Username.Equals(User.Identity.Name)).Include(user => user.Blogs).FirstOrDefault();
     }
 
     private async Task<byte[]> GetBytesFromFile(IFormFile file)

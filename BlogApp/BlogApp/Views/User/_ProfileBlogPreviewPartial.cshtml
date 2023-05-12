@@ -1,0 +1,24 @@
+﻿@model Blog
+
+<div class="blog-preview">
+    <div class="blog-title-block">
+        <span class="blog-title">
+            <a asp-controller="Blog" asp-action="Details" asp-route-id="@Model.Id">
+                @Model.Title
+            </a>
+        </span>
+        <span>
+            @Model.Description
+        </span>
+    </div>
+    <div class="blog-preview-image">
+        @if (Model.PreviewImage is null)
+        {
+            <img src="~/img/post-image.png" alt=""/>
+        }
+        else
+        {
+            <img src="data:image;base64,@Convert.ToBase64String(Model.PreviewImage)" alt=""/>
+        }
+    </div>
+</div>

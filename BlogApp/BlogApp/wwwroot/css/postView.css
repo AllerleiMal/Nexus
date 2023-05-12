@@ -47,3 +47,7 @@
 #post-tag-block span{
     font-size: 17px;
 }
+
+#post-blog a {
+    text-decoration: none;
+}
