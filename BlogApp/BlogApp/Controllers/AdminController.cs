@@ -27,6 +27,6 @@ public class AdminController : Controller
             .Include(post => post.Tags)
             .Where(post => post.ModerationPassed == false)
             .ToListAsync();
-        return View(postsPendingReview);
+        return View(postsPendingReview.Result);
     }
 }

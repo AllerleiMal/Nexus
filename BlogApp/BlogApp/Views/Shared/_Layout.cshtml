@@ -6,12 +6,14 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    @if (ViewData["Title"].Equals("Profile"))
+    @if (ViewData["Page"].Equals("Profile"))
     {
         <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/feed.css" asp-append-version="true"/>
-    }
-    else
+    }else if (ViewData["Page"].Equals("CreateBlog"))
+    {
+        <link rel="stylesheet" href="~/css/createBlog.css" asp-append-version="true"/>
+    }else
     {
         <link rel="stylesheet" href="~/css/createPost.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/postView.css" asp-append-version="true"/>
@@ -52,7 +54,7 @@
                         </li>
                     }
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="CreatePost">Create Post</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Create">Create Post</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
@@ -89,7 +91,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-@if (ViewData["Title"].Equals("Profile")){
+@if (ViewData["Page"].Equals("Profile")){
     <script src="~/js/profile.js" asp-append-version="true"></script>
 }
 <partial name="_ValidationScriptsPartial"/>

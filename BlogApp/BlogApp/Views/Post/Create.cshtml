@@ -2,9 +2,10 @@
 
 @{
     ViewData["Title"] = "Create post";
+    ViewData["Page"] = "CreatePost";
 }
 <div class="container" id="create-post-container">
-    <form asp-action="CreatePost" method="post" id="create-post-form" enctype="multipart/form-data">
+    <form asp-controller="Post" asp-action="Create" method="post" id="create-post-form" enctype="multipart/form-data">
         <h1 id="form-title" class="display-3">Create post</h1>
 
         <div id="title-block" class="post-creation-block">

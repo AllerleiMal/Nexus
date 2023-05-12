@@ -1,7 +1,8 @@
 ﻿@model User
 
 @{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = $"{Model.Username} Profile";
+    ViewData["Page"] = "Profile";
 }
 
 @if (Model is null)
@@ -50,7 +51,7 @@ else
                 <a id="create-blog" class="create" asp-controller="Blog" asp-action="Create">
                     Create blog
                 </a>
-                <a id="create-post" class="create" asp-controller="Post" asp-action="CreatePost">
+                <a id="create-post" class="create" asp-controller="Post" asp-action="Create">
                     Create post
                 </a>   
             }

@@ -24,7 +24,7 @@ public class PostController : Controller
     }
 
     [Authorize]
-    public IActionResult CreatePost()
+    public IActionResult Create()
     {
         var currentUser = GetCurrentUser();
 
@@ -50,7 +50,7 @@ public class PostController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult CreatePost(CreatePostViewModel postData)
+    public IActionResult Create(CreatePostViewModel postData)
     {
         // Stopwatch timer = new Stopwatch();
         // timer.Start();
