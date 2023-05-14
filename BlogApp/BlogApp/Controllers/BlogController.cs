@@ -22,6 +22,7 @@ public class BlogController: Controller
     {
         var blog = _context.Blogs
             .Where(blog => blog.Id == id)
+            .Include(blog => blog.User)
             .Include(blog => blog.Posts)
             .ThenInclude(post => post.Tags)
             .AsSplitQuery()

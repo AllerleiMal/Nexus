@@ -1,6 +1,51 @@
-﻿@{
+﻿@model Blog
+
+@{
     ViewData["Title"] = "Blog details";
     ViewData["Page"] = "BlogDetails";
 }
 
-<h1>Blog details</h1>
+<div class="container">
+    <div id="blog-details">
+        <div class="blog-details-block">
+            <h1 class="display-2">@Model.Title</h1>
+        </div>
+
+        <div class="blog-details-block" id="author-block">
+            <span class="source-name">Author:</span>
+            <a class="source-link" asp-controller="User" asp-action="Profile" asp-route-id="@Model.UserId">@Model.User.Username</a>
+        </div>
+
+        <div class="blog-details-block" id="preview-image-block">
+            @if (Model.PreviewImage is null)
+            {
+                <img src="~/img/post-image.png" alt=""/>
+            }
+            else
+            {
+                <img src="data:image;base64,@Convert.ToBase64String(Model.PreviewImage)" alt=""/>
+            }
+        </div>
+        
+        <div class="blog-details-block" id="description-block">
+            <h1 class="display-5">Description</h1>
+            <span id="description">@Model.Description</span>
+        </div>
+        
+        <div class="blog-details-block" id="posts-blog">
+            <h1 class="display-5">Posts</h1>
+            @if (!Model.Posts.Any())
+            {
+                <span class="custom-placeholder">No posts created yet</span>
+            }
+            else
+            {
+                @foreach (var post in @Model.Posts)
+                {
+                    <partial name="_PostPreviewPartial" model="post"/>
+                    <hr class="delimiter"/>
+                }   
+            }
+        </div>
+    </div>
+</div>

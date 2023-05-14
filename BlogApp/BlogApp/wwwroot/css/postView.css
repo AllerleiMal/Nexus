@@ -40,7 +40,7 @@
 }
 
 #post-content-zone span {
-    white-space: pre-line;
+    white-space: pre-wrap;
     width: 100%;
 }
 

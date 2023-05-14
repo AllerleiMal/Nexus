@@ -24,6 +24,7 @@ public class HomeController : Controller
         var data = await _context.Posts.Include(p => p.Blog)
             .Include(p => p.Blog.User)
             .Include(post => post.Tags)
+            .OrderByDescending(post => post.Id)
             .ToListAsync();
         return View(data);
     }
