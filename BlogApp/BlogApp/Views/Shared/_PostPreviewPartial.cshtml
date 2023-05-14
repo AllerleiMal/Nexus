@@ -4,14 +4,17 @@
 <div class="feed-item">
     <div class="feed-item-description">
         <h2 class="post-title">@Model.Title</h2>
-        <div class="sources">
-            <div class="author-block">
-                <span class="source-name">Author: </span> <a class="source-link">@Model.Blog.User.Username</a>
-            </div>
-            <div class="blog-name-block">
-                <span class="source-name">Blog: </span> <a class="source-link">@Model.Blog.Title</a>
-            </div>
-        </div>
+        @if (!ViewData["Page"].Equals("BlogDetails"))
+        {
+            <div class="sources">
+                <div class="author-block">
+                    <span class="source-name">Author: </span> <a class="source-link" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Blog.User.Id">@Model.Blog.User.Username</a>
+                </div>
+                <div class="blog-name-block">
+                    <span class="source-name">Blog: </span> <a class="source-link" asp-controller="Blog" asp-action="Details" asp-route-id="@Model.Blog.Id">@Model.Blog.Title</a>
+                </div>
+            </div>   
+        }
         <div class="tags">
             @foreach (var tag in Model.Tags)
             {
