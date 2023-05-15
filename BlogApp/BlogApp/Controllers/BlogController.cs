@@ -20,6 +20,11 @@ public class BlogController: Controller
     [Authorize]
     public IActionResult Details(int? id)
     {
+        if (id is null)
+        {
+            return NotFound();
+        }
+        
         var blog = _context.Blogs
             .Where(blog => blog.Id == id)
             .Include(blog => blog.User)
@@ -96,6 +101,11 @@ public class BlogController: Controller
     [Authorize]
     public IActionResult Post(int? id)
     {
+        if (id is null)
+        {
+            return NotFound();
+        }
+        
         var post = _context.Posts
             .Where(post => post.Id == id)
             .Include(post => post.Blog)

@@ -17,7 +17,11 @@
     {
         <link rel="stylesheet" href="~/css/blogDetails.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/feed.css" asp-append-version="true"/>
-    }else
+    }else if (ViewData["Page"].Equals("UserList") || ViewData["Page"].Equals("Requests"))
+    {
+        <link rel="stylesheet" href="~/css/userList.css" asp-append-version="true"/>
+    }
+    else
     {
         <link rel="stylesheet" href="~/css/createPost.css" asp-append-version="true"/>
         <link rel="stylesheet" href="~/css/postView.css" asp-append-version="true"/>

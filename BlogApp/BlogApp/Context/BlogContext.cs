@@ -31,6 +31,8 @@ public class BlogContext : DbContext
     public virtual DbSet<Tag> Tags { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    
+    public virtual DbSet<Status> Statuses { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -126,6 +128,17 @@ public class BlogContext : DbContext
                 .HasColumnName("title");
         });
 
+        modelBuilder.Entity<Status>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("Status_pk");
+
+            entity.ToTable("Status");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Title).HasMaxLength(20)
+                .HasColumnName("title");
+        });
+
         modelBuilder.Entity<Post>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("Post_PK");
@@ -138,7 +151,7 @@ public class BlogContext : DbContext
             entity.Property(e => e.Content)
                 .IsUnicode(false)
                 .HasColumnName("content");
-            entity.Property(e => e.ModerationPassed).HasColumnName("moderation_passed");
+            entity.Property(e => e.StatusId).HasColumnName("status_id");
             entity.Property(e => e.PreviewImage).HasColumnName("preview_image");
             entity.Property(e => e.Title)
                 .HasMaxLength(50)
@@ -147,6 +160,8 @@ public class BlogContext : DbContext
             entity.HasOne(d => d.Blog).WithMany(p => p.Posts)
                 .HasForeignKey(d => d.BlogId)
                 .HasConstraintName("Post_Blog_FK");
+
+            entity.HasOne(post => post.Status).WithMany(status => status.Posts).HasConstraintName("Post_Status_id_fk");
         });
 
         modelBuilder.Entity<PostTag>(entity =>

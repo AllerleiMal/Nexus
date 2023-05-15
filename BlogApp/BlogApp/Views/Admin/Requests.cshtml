@@ -4,46 +4,51 @@
     ViewData["Title"] = "Requests";
     ViewData["Page"] = "Requests";
 }
-@* *@
-@* <table class="table"> *@
-@*     <thead> *@
-@*     <tr> *@
-@*         <th> *@
-@*             @Html.DisplayNameFor(post => post) *@
-@*         </th> *@
-@*         <th> *@
-@*             @Html.DisplayNameFor(user => user.FirstName) *@
-@*         </th> *@
-@*         <th> *@
-@*             @Html.DisplayNameFor(user => user.Email) *@
-@*         </th> *@
-@*         <th> *@
-@*             @Html.DisplayNameFor(user => user.Password) *@
-@*         </th> *@
-@*         <th></th> *@
-@*     </tr> *@
-@*     </thead> *@
-@*     <tbody> *@
-@*     @foreach (var userItem in Model) { *@
-@*         <tr> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => userItem.Id) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => userItem.FirstName) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => userItem.Email) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => userItem.Password) *@
-@*             </td> *@
-@*             $1$ <td> #1# *@
-@*             $1$     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | #1# *@
-@*             $1$     <a asp-action="Details" asp-route-id="@item.Id">Details</a> | #1# *@
-@*             $1$     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> #1# *@
-@*             $1$ </td> #1# *@
-@*         </tr> *@
-@*     } *@
-@*     </tbody> *@
-@* </table> *@
+
+<div class="container">
+    @if (ViewBag.Success is not null)
+    {
+        <span class="alert-success">@ViewBag.Success</span>
+    }
+    else if (ViewBag.Failed is not null)
+    {
+        <span class="alert-danger">@ViewBag.Failed</span>
+    }
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(post => post.Id)
+            </th>
+            <th>
+                Blog title
+            </th>
+            <th>
+                Post title
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => post.Id)
+                </td>
+                <td>
+                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Blog.Id">@post.Blog.Title</a>
+                </td>
+                <td>
+                    <a asp-controller="Blog" asp-action="Post" asp-route-id="@post.Id">@post.Title</a>
+                </td>
+                <td>
+                    <a asp-action="AcceptPost" asp-route-id="@post.Id">Accept</a> |
+                    <a asp-action="DeclinePost" asp-route-id="@post.Id">Decline</a> |
+                    <a asp-action="DeletePost" asp-route-id="@post.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
