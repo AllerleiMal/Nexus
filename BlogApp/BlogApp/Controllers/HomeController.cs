@@ -21,7 +21,10 @@ public class HomeController : Controller
     [Authorize]
     public async Task<IActionResult> Index()
     {
-        var data = await _context.Posts.Include(p => p.Blog)
+        var data = await _context.Posts
+            .Include(post => post.Status)
+            .Where(post => post.Status.Title.Equals(Status.Accepted))
+            .Include(p => p.Blog)
             .Include(p => p.Blog.User)
             .Include(post => post.Tags)
             .OrderByDescending(post => post.Id)

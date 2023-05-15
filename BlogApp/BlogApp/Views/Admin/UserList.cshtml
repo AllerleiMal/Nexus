@@ -4,46 +4,76 @@
     ViewData["Title"] = "User list";
     ViewData["Page"] = "UserList";
 }
-
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(user => user.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(user => user.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(user => user.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(user => user.Password)
-        </th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var userItem in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => userItem.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => userItem.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => userItem.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => userItem.Password)
-            </td>
-            @* <td> *@
-            @*     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | *@
-            @*     <a asp-action="Details" asp-route-id="@item.Id">Details</a> | *@
-            @*     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-            @* </td> *@
-        </tr>
+<div class="container">
+    @if (ViewData["Success"] is not null)
+    {
+        <span class="alert-success">@ViewData["Success"]</span>
     }
-    </tbody>
-</table>
+    else if (ViewData["Failed"] is not null)
+    {
+        <span class="alert-danger">@ViewData["Failed"]</span>
+    }
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(user => user.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(user => user.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(user => user.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(user => user.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(user => user.SecondName)
+            </th>
+            <th>
+                Is administrator
+            </th>
+            <th>
+                @Html.DisplayNameFor(user => user.RegistrationDate)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var userItem in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.SecondName)
+                </td>
+                <td>
+                    @{
+                        var role = userItem.Admin is null ? "User" : "Administrator";
+                    }
+                    @role
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => userItem.RegistrationDate)
+                </td>
+                <td>
+                    <a asp-controller="User" asp-action="Profile" asp-route-id="@userItem.Id">Profile</a> |
+                    <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@userItem.Id">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

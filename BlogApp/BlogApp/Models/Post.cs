@@ -18,13 +18,14 @@ public class Post
     public byte[]? PreviewImage { get; set; }
 
     public int? BlogId { get; set; }
-
-    public bool ModerationPassed { get; set; }
     
+    public int StatusId { get; set; }
+
     [StringLength(300)]
     public string? Description { get; set; }
 
     public virtual Blog? Blog { get; set; }
+    public virtual Status? Status { get; set; }
 
     public virtual ICollection<PostTag> PostTags { get; set; } = new List<PostTag>();
     public virtual ICollection<Tag> Tags { get; set; } = new List<Tag>();
